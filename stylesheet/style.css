@@ -1,0 +1,15 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+div#timer-stat {
+  margin-bottom: 50px;
+}
+input {
+  min-width: 50px;
+  border: none;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+}

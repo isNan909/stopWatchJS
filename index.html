@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="stylesheet\style.css" type="text/css" rel="stylesheet" />
+    <title>Counter App</title>
+  </head>
+  <body>
+    <section class="container">
+      <div id="timer">
+        <div id="timer-stat">
+          <h4>Time Left:</h4>
+          <input id="min" placeholder="minutes" type="text" />
+          <input id="sec" placeholder="second" type="text" />
+          <p id="notification"></p>
+        </div>
+        <button onclick="startCount();">Start Timer</button>
+        <button onclick="stop();">Stop</button>
+        <h5 id="msg"></h5>
+      </div>
+    </section>
+  </body>
+  <script src="main.js"></script>
+</html>
