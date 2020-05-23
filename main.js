@@ -8,12 +8,14 @@ var secElement = document.getElementById('sec');
 function startCount() {
   let minutes = parseInt(minElement.value) || 0;
   let seconds = parseInt(secElement.value) || 0;
+  document.getElementById('startBtn').style.display = 'none';
   counter = minutes * 60 + seconds;
   renderElement(counter);
   interval = setInterval(Decrement, 1000);
 }
 
 function Decrement() {
+  document.getElementById('stopBtn').style.display = 'initial';
   if (counter <= 0) {
     clearInterval(interval);
     counter = 0;
@@ -26,6 +28,7 @@ function Decrement() {
 function renderElement(value) {
   if (value <= 0) {
     document.getElementById('msg').innerHTML = "Sorry your Time's up!";
+    document.getElementById('stopBtn').style.display = 'initial';
   } else if (value < 10) {
     minElement.style.color = 'red';
     secElement.style.color = 'red';
@@ -38,6 +41,7 @@ function renderElement(value) {
 }
 
 function stop() {
+  document.getElementById('startBtn').style.display = 'initial';
   clearInterval(interval);
 }
 

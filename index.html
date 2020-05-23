@@ -10,14 +10,14 @@
     <section class="container">
       <div id="timer">
         <div id="timer-stat">
-          <h4>Time Left:</h4>
-          <input id="min" placeholder="minutes" type="text" />
-          <input id="sec" placeholder="second" type="text" />
+          <h2>My StopWatch</h2>
+          <input id="min" placeholder="minutes" type="number" />
+          <input id="sec" placeholder="second" type="number" />
           <p id="notification"></p>
         </div>
-        <button onclick="startCount();">Start Timer</button>
-        <button onclick="stop();">Stop</button>
-        <button onclick="reset();">Reset</button>
+        <button id="startBtn" onclick="startCount();">Start Timer</button>
+        <button id="stopBtn" onclick="stop();">Stop</button>
+        <button id="resetBtn" onclick="reset();">Reset</button>
         <h5 id="msg"></h5>
       </div>
     </section>
