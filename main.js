@@ -1,40 +1,47 @@
-let mins = 1;
-let secs = mins * 60;
+// Stopwatch in pure simple javascript
 
-minutes = document.getElementById('min');
-seconds = document.getElementById('sec');
+var counter = 60;
+var interval;
+var minElement = document.getElementById('min');
+var secElement = document.getElementById('sec');
 
 function startCount() {
-  setTimeout('Decrement()', 60);
+  let minutes = parseInt(minElement.value) || 0;
+  let seconds = parseInt(secElement.value) || 0;
+  counter = minutes * 60 + seconds;
+  renderElement(counter);
+  interval = setInterval(Decrement, 1000);
 }
+
 function Decrement() {
-  if (seconds < 59) {
-    seconds.value = secs;
+  if (counter <= 0) {
+    clearInterval(interval);
+    counter = 0;
   } else {
-    minutes.value = getMinutes();
-    seconds.value = getSeconds();
+    counter--;
   }
-  if (secs < 10) {
-    minutes.style.color = 'red';
-    seconds.style.color = 'red';
+  renderElement(counter);
+}
+
+function renderElement(value) {
+  if (value <= 0) {
+    document.getElementById('msg').innerHTML = "Sorry your Time's up!";
+  } else if (value < 10) {
+    minElement.style.color = 'red';
+    secElement.style.color = 'red';
     document.getElementById('msg').innerHTML = 'HURRY UP!!';
   }
-  if (mins < 0) {
-    minutes.value = '00';
-    seconds.value = '00';
-    document.getElementById('msg').innerHTML = "Sorry your Time's up!";
-  } else {
-    secs--;
-    setTimeout('Decrement()', 1000);
-  }
+  let min = Math.floor(value / 60);
+  let sec = value - min * 60;
+  minElement.value = min;
+  secElement.value = sec;
 }
-function getMinutes() {
-  mins = Math.floor(secs / 60);
-  return mins;
-}
-function getSeconds() {
-  return secs - Math.round(mins * 60);
-}
+
 function stop() {
-  return (this.minutes.value = ''), (this.seconds.value = '');
+  clearInterval(interval);
+}
+
+function reset() {
+  minElement.value = '';
+  secElement.value = '';
 }
